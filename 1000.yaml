@@ -1,0 +1,18 @@
+server:
+  id: pir
+  port: 18001
+  refresh_interval: 60
+  tls_cert: tls-cert
+  tls_validation_context: validation-context
+
+party:
+  id: 1000
+
+mysql:
+  host: "172.20.60.30"
+  port: 31002
+  user: root
+  password: Wa@123456
+  database: fedx
+  peer_sql: "SELECT party_id, type, host, port FROM communication_peer WHERE type = 'pir' AND is_deleted = FALSE"
+  service_sql: "SELECT party_id, pyu_serv_host, spu_serv_host, spu_proto_host, envoy_pyu_serv_port, envoy_spu_serv_port, envoy_spu_proto_port FROM mpc_query_metadata WHERE is_deleted = FALSE"
